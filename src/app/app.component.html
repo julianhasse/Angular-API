@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <h1 class="display-4">{{title}}</h1>
+      <p class="lead">This is a simple app that gets a list of users by calling a REST API and displays the data on a bootstrap-styled table.</p>
+      <hr class="my-4">
+      <p>It uses an HTTP request to <strong>https://jsonplaceholder.typicode.com/ </strong> </p>
+      <br />
+      <p>
+        <button type="button" (click)="callApi()" class="btn btn-primary btn-md">Call API</button>
+      </p>
+      <br />
+      <footer class="font-weight-light float-right">
+        Made with <span style="color: #e25555;">&hearts;</span> by Julian Hasse
+      </footer>
+    </div>
+
+    <!-- Table with users-->
+    <table *ngIf='users && users.length' class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let user of users'>
+          <td><pre>{{user.id}}</pre></td>
+          <td><pre>{{user.name}}</pre></td>
+          <td><pre>{{user.email}}</pre></td>
+          <td><pre>{{user.phone}}</pre></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- End of Table with users-->
+
+  </div>
+</div>
+
+
